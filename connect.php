@@ -6,9 +6,7 @@ $conn = new mysqli(
     'iteh-domaci-php'
     );
 
-if ($conn) {
-    echo "Uspesna konekcija!";
-} else {
+if (!$conn) {
     die(mysqli_error($conn));
 }
 ?>
