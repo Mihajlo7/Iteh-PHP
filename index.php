@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Prijava</title>
+  <meta charset="UTF-8">
+  <title>HTML5 Login Form with validation Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="css/styles.css">
+
 </head>
 <body>
-<div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
-    <form>
-        <h3>Prijava</h3>
-
-        <label for="username">Prijava</label>
-        <input type="text" placeholder="Email or Phone" id="username">
-
-        <label for="password">Sifra</label>
-        <input type="password" placeholder="Password" id="password">
-
-        <button>prijava</button>
-    </form>
+<!-- partial:index.partial.html -->
+<div id="login-form-wrap">
+  <h2>Login</h2>
+  <div class="imgcontainer">
+  <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
+  <form id="login-form">
+    <p>
+    <input type="text" id="username" name="username" placeholder="Username" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="email" id="email" name="email" placeholder="Email Address" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="submit" id="login" value="Login">
+    </p>
+  </form>
+  <div id="create-account-wrap">
+    <p>Not a member? <a href="#">Create Account</a><p>
+  </div><!--create-account-wrap-->
+</div><!--login-form-wrap-->
+<!-- partial -->
+  
 </body>
 </html>
