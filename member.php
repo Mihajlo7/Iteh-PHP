@@ -67,7 +67,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger">Sacuvaj</button>
+                    <button type="button" class="btn btn-danger" onclick="addMember()">Sacuvaj</button>
                     <button type="button" class="btn btn-dark" data-dismiss="modal">Zatvori</button>
 
                 </div>
@@ -89,6 +89,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    <script>
+        function addMember() {
+            var nameAdd = $('#completename').val();
+            var emailAdd = $('#completeemail').val();
+            var mobileAdd = $('#completemobile').val();
+            var placeAdd = $('#completeplace').val();
+
+
+            $.ajax({
+                url: "insertMember.php",
+                type: 'post',
+                data: {
+                    nameSend: nameAdd,
+                    emailSend: emailAdd,
+                    mobileSend: mobileAdd,
+                    placeSend: placeAdd
+                },
+                success: function (data, status) {
+                    //funkcija za prikaz podataka
+                    console.log(status);
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
