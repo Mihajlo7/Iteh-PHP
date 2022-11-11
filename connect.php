@@ -4,7 +4,7 @@ $conn = new mysqli(
     'root',
     'root',
     'iteh-domaci-php'
-    );
+);
 
 if (!$conn) {
     die(mysqli_error($conn));

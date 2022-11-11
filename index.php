@@ -1,3 +1,32 @@
+<?php
+require 'connect.php';
+require 'model/Admin.php';
+
+session_start();
+if (isset($_POST['username']) && isset($_POST['email'])) {
+  $adminname = $_POST['username'];
+  $adminemail = $_POST['email'];
+
+  $admin = new Admin(1, $adminname, $adminemail);
+  $result = Admin::loginAdmin($admin, $conn);
+
+  if ($result->num_rows == 1) {
+    echo '<script>console.log("Uspesna prijava!");</script>';
+    $_SESSION['admin_id'] = $admin->id;
+    header('Location:member.php');
+    exit();
+  } else {
+    echo '<script>console.log("Neuspesna prijava prijava!");</script>';
+  }
+}
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,13 +39,14 @@
 </head>
 
 <body>
+
   <!-- partial:index.partial.html -->
   <div id="login-form-wrap">
     <h2>Prijava</h2>
     <div class="imgcontainer">
       <img src="img/img_avatar2.png" alt="Avatar" class="avatar">
     </div>
-    <form id="login-form">
+    <form id="login-form" method="post" action="#">
       <p>
         <input type="text" id="username" name="username" placeholder="Korisnicko ime" required><i
           class="validation"><span></span><span></span></i>
