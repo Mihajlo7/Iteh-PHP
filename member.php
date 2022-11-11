@@ -108,7 +108,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="addMember()">Azuriraj</button>
+                    <button type="button" class="btn btn-danger" onclick="updateMember()">Azuriraj</button>
                     <button type="button" class="btn btn-dark" data-dismiss="modal">Zatvori</button>
                     <input type="hidden" id="hiddendata">
 
@@ -179,6 +179,7 @@
                     $(document).ready(function () {
                         displayData();
                     });
+                    $('#completeModal').modal("hide");
                 }
             });
         }
@@ -199,7 +200,7 @@
         }
 
         // izmeni podatke clana
-        function updateMember(updateId) {
+        function getMember(updateId) {
             $('#hiddendata').val(updateId);
             $.post("updateMember.php", { updateId: updateId }, function (data, status) {
                 var userId = JSON.parse(data);
@@ -209,6 +210,26 @@
                 $('#updateplace').val(userId.place);
             });
             $('#updateModal').modal("show");
+        }
+
+        function updateMember() {
+            var updateName = $('#updatename').val();
+            var updateEmail = $('#updateemail').val();
+            var updateMobile = $('#updatemobile').val();
+            var updatePlace = $('#updateplace').val();
+            var hiddenData = $('#hiddendata').val();
+
+            $.post("updateMember.php", {
+                updateName: updateName,
+                updateEmail: updateEmail,
+                updateMobile: updateMobile,
+                updatePlace: updatePlace,
+                hiddenData: hiddenData
+            }, function (data, status) {
+                console.log(status);
+                $('#updateModal').modal("hide");
+                displayData();
+            });
         }
     </script>
 </body>

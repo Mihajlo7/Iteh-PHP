@@ -16,4 +16,17 @@ if (isset($_POST['updateId'])) {
     $rensponse['message'] = "Invalid or data not found";
 }
 
+
+if (isset($_POST['hiddenData'])) {
+
+    $unique = $_POST['hiddenData'];
+    $name = $_POST['updateName'];
+    $email = $_POST['updateEmail'];
+    $mobile = $_POST['updateMobile'];
+    $place = $_POST['updatePlace'];
+
+    $query = "update `member` set name='$name',email='$email',mobile='$mobile',place='$place' where id='$unique'";
+    $result = mysqli_query($conn, $query);
+    echo $result;
+}
 ?>
