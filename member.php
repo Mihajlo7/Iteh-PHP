@@ -90,6 +90,21 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
     <script>
+        //prikazi clanove
+        function displayData() {
+            var displayData = "true";
+            $.ajax{
+                url: "displayMember.php",
+                    type: 'post',
+                        data: {
+                    displaySend: displayData
+                },
+                success: function(data, status)
+            }
+        }
+
+
+        //dodaj novog clana
         function addMember() {
             var nameAdd = $('#completename').val();
             var emailAdd = $('#completeemail').val();
@@ -108,7 +123,8 @@
                 },
                 success: function (data, status) {
                     //funkcija za prikaz podataka
-                    console.log(status);
+                    //console.log(status);
+                    displayData();
                 }
             });
         }
