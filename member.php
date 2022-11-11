@@ -116,7 +116,36 @@
             </div>
         </div>
     </div>
+    <!-- Cookie model-->
+    <div class="modal" tabindex="-1" id="cookieModel" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Obavestenje</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <?php
+
+                        if (isset($_COOKIE['lastVisit'])) {
+                            $visit = $_COOKIE['lastVisit'];
+                            echo "Your last visit was - " . $visit;
+                        } else
+                            echo "You've got some stale cookies!";
+                        ?>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--             -->
+
 
     <div class="container my-5">
         <h1 class="text-center">Clanovi biblioteke</h1>
@@ -139,6 +168,11 @@
 
         $(document).ready(function () {
             displayData();
+            var from = document.referrer;
+            console.log(from);
+            if (from == "http://localhost:8081/iteh-domaci-1/index.php") {
+                $('#cookieModel').modal("show");
+            }
         });
         //prikazi clanove
         function displayData() {
