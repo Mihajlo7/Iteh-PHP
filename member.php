@@ -75,6 +75,49 @@
         </div>
     </div>
 
+    <!-- UPDATE MODEL -->
+    <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Izmena podataka clana biblioteke</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="completename">Ime i prezime</label>
+                            <input type="text" class="form-control" id="updatename" placeholder="Unesite ime i prezime">
+                        </div>
+                        <div class="form-group">
+                            <label for="completeemail">Email </label>
+                            <input type="text" class="form-control" id="updateemail" placeholder="Unesite email">
+                        </div>
+                        <div class="form-group">
+                            <label for="completemobile">Telefon </label>
+                            <input type="text" class="form-control" id="updatemobile" placeholder="Unesite telefon">
+                        </div>
+                        <div class="form-group">
+                            <label for="updateplace">Prebivaliste </label>
+                            <input type="text" class="form-control" id="completeplace"
+                                placeholder="Unesite grad u kojem zivite">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onclick="addMember()">Azuriraj</button>
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Zatvori</button>
+                    <input type="hidden" id="hiddendata">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--             -->
+
     <div class="container my-5">
         <h1 class="text-center">Clanovi biblioteke</h1>
         <button type="button" class="btn btn-dark my-3" data-toggle="modal" data-target="#completeModal">
@@ -138,6 +181,34 @@
                     });
                 }
             });
+        }
+
+        //Brisanje clana biblioteke
+        function deleteMember(deleteId) {
+            $.ajax({
+                url: "deleteMember.php",
+                type: 'post',
+                data: {
+                    deleteSend: deleteId
+                },
+                success: function (data, status) {
+                    console.log("Obrisan clan sa id:", deleteId);
+                    displayData();
+                }
+            })
+        }
+
+        // izmeni podatke clana
+        function updateMember(updateId) {
+            $('#hiddendata').val(updateId);
+            $.post("updateMember.php", { updateId: updateId }, function (data, status) {
+                var userId = JSON.parse(data);
+                $('#updatename').val(userId.name);
+                $('#updateemail').val(userId.email);
+                $('#updatemobile').val(userId.mobile);
+                $('#updateplace').val(userId.place);
+            });
+            $('#updateModal').modal("show");
         }
     </script>
 </body>
