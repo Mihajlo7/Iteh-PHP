@@ -102,7 +102,7 @@
                         </div>
                         <div class="form-group">
                             <label for="updateplace">Prebivaliste </label>
-                            <input type="text" class="form-control" id="completeplace"
+                            <input type="text" class="form-control" id="updateplace"
                                 placeholder="Unesite grad u kojem zivite">
                         </div>
                     </form>
