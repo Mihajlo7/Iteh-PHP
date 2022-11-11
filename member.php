@@ -77,9 +77,12 @@
 
     <div class="container my-5">
         <h1 class="text-center">Clanovi biblioteke</h1>
-        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#completeModal">
+        <button type="button" class="btn btn-dark my-3" data-toggle="modal" data-target="#completeModal">
             Dodaj novog clana
         </button>
+        <div id="displayDataTable">
+
+        </div>
     </div>
 
 
@@ -90,17 +93,23 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
     <script>
+
+        $(document).ready(function () {
+            displayData();
+        });
         //prikazi clanove
         function displayData() {
             var displayData = "true";
-            $.ajax{
+            $.ajax({
                 url: "displayMember.php",
-                    type: 'post',
-                        data: {
+                type: 'post',
+                data: {
                     displaySend: displayData
                 },
-                success: function(data, status)
-            }
+                success: function (data, status) {
+                    $('#displayDataTable').html(data);
+                }
+            });
         }
 
 
@@ -123,8 +132,8 @@
                 },
                 success: function (data, status) {
                     //funkcija za prikaz podataka
-                    //console.log(status);
-                    displayData();
+                    console.log(status);
+                    //displayData();
                 }
             });
         }
