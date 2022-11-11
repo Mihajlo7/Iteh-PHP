@@ -5,6 +5,7 @@ if (isset($_POST['updateId'])) {
     $user_id = $_POST['updateId'];
     $query = "select * from `member` where id=$user_id";
     $result = mysqli_query($conn, $query);
+    //$result = Member::getDetails($user_id, $conn);
     $rensponse = array();
 
     while ($row = mysqli_fetch_assoc($result)) {

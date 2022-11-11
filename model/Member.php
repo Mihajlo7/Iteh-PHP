@@ -24,5 +24,19 @@ class Member
         return $result;
     }
 
+    public static function deleteMember($unique, mysqli $conn)
+    {
+        $query = "delete from `member` where id=$unique";
+        $result = mysqli_query($conn, $query);
+        return $result;
+    }
+
+    public static function getDetails($unique, mysqli $conn)
+    {
+        $query = "select * from `member` where id=$unique";
+        $result = mysqli_query($conn, $query);
+        return $result;
+    }
+
 }
 ?>
