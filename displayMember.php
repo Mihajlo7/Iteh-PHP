@@ -29,6 +29,10 @@ if (isset($_POST['displaySend'])) {
         <td>' . $email . '</td>
         <td>' . $mobile . '</td>
         <td>' . $place . '</td>
+        <td>
+            <button class="btn btn-dark">Izmeni</button>
+            <button class="btn btn-danger" onclick="deleteMember(' . $id . ')">Obrisi</button>
+        </td>
       </tr>';
     }
     $table .= '</table>';

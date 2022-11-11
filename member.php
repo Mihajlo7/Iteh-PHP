@@ -133,7 +133,9 @@
                 success: function (data, status) {
                     //funkcija za prikaz podataka
                     console.log(status);
-                    //displayData();
+                    $(document).ready(function () {
+                        displayData();
+                    });
                 }
             });
         }
