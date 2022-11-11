@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+    <!-- Meni -->
     <nav class="navbar navbar-dark navbar-expand-lg bg-dark bg-gradient">
         <div class="container">
             <a class="navbar-brand" href="#">
@@ -26,7 +26,7 @@
                         <a class="nav-link disabled" aria-current="page" href="#">Clanovi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Knjige</a>
+                        <a class="nav-link active" aria-current="page" href="book.php">Knjige</a>
                     </li>
                 </ul>
             </div>

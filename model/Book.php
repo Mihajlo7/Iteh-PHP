@@ -14,5 +14,11 @@ class Book
         $this->author = $author;
         $this->specimen = $specimen;
     }
+    public static function getBook($title, mysqli $conn)
+    {
+        $query = "select * from `book` where title='$title'";
+        $result = $conn->query($query);
+        return $result;
+    }
 }
 ?>
