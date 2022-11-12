@@ -132,9 +132,9 @@
 
                         if (isset($_COOKIE['lastVisit'])) {
                             $visit = $_COOKIE['lastVisit'];
-                            echo "Your last visit was - " . $visit;
+                            echo "Zdravo nazad! Poslednji put ste radili u aplikaciji - " . $visit;
                         } else
-                            echo "You've got some stale cookies!";
+                            echo "Dobro dosao! Postavljen je kolacic ";
                         ?>
                     </p>
                 </div>

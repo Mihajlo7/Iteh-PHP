@@ -28,5 +28,12 @@ class Renting
         return $result;
     }
 
+    public static function getRenting(mysqli $conn)
+    {
+        $query = "SELECT * FROM `renting`";
+        $result = $conn->query($query);
+        return $result;
+    }
+
 }
 ?>

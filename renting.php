@@ -87,6 +87,9 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
     <script>
+        $(document).ready(function () {
+            displayData();
+        });
 
         //dodavanje nove rezervacije
         function addRenting() {
@@ -107,8 +110,23 @@
                 success: function (data, status) {
                     console.log(status);
                     $('#completeModal').modal("hide");
+                    displayData();
                 }
-            })
+            });
+        }
+        function displayData() {
+            var bool = true;
+            $.ajax({
+                url: "displayRenting.php",
+                type: 'post',
+                data: {
+                    bool: bool
+                },
+                success: function (data, status) {
+                    console.log(status);
+                    $('#displayDataTable').html(data);
+                }
+            });
         }
     </script>
 </body>
