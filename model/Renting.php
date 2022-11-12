@@ -20,11 +20,10 @@ class Renting
 
     public static function addRenting($renting, mysqli $conn)
     {
-        $query = "INSERT INTO `renting`(status,date,isbnBook,idBook,idMember) VALUES('$renting->status',
-        $renting->date,
-        $renting->isbnBook,
-        $renting->idBook,
-        $renting->idMember)";
+        $query = "INSERT INTO `renting`(id,status,date,isbnBook,idBook,idMember) VALUES(null,'$renting->status','$renting->date',
+        '$renting->isbnBook',
+        '$renting->idBook',
+        '$renting->idMember')";
         $result = $conn->query($query);
         return $result;
     }

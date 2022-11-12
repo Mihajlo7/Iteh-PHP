@@ -26,7 +26,7 @@ setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Rezervacije</a>
+                        <a class="nav-link active" aria-current="page" href="renting.php">Rezervacije</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="member.php">Clanovi</a>
