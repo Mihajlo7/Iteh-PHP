@@ -155,6 +155,9 @@
         <div id="displayDataTable">
 
         </div>
+        <button type="button" class="btn btn-primary my-3" onclick="sort()">
+            Sortiraj po gradu
+        </button>
     </div>
 
 
@@ -263,6 +266,19 @@
                 console.log(status);
                 $('#updateModal').modal("hide");
                 displayData();
+            });
+        }
+        function sort() {
+            var displayData = "true";
+            $.ajax({
+                url: "sortMember.php",
+                type: 'post',
+                data: {
+                    displaySend: displayData
+                },
+                success: function (data, status) {
+                    $('#displayDataTable').html(data);
+                }
             });
         }
     </script>
